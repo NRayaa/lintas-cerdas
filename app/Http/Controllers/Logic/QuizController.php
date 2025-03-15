@@ -75,7 +75,7 @@ class QuizController extends Controller
             ['score' => $score]
         );
 
-        return redirect()->route('profile.sd')->with('success', 'Quiz berhasil dikumpulkan! Skor Anda: ' . $score);
+        return redirect()->route('quiz.sd')->with('success', 'Quiz berhasil dikumpulkan! Skor Anda: ' . $score);
     }
 
     public function smpSubmitQuiz(Request $request, $quizId)
@@ -130,7 +130,7 @@ class QuizController extends Controller
             ['score' => $score]
         );
 
-        return redirect()->route('profile.smp')->with('success', 'Quiz berhasil dikumpulkan! Skor Anda: ' . $score);
+        return redirect()->route('quiz.smp')->with('success', 'Quiz berhasil dikumpulkan! Skor Anda: ' . $score);
     }
 
     public function smaSubmitQuiz(Request $request, $quizId)

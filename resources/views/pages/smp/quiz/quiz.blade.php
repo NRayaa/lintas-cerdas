@@ -2,7 +2,13 @@
 @php
     $background = 'background-image: url(' . asset('storage/assets/bg/bg-2.jpg') . ');';
 @endphp
-
+@section('menulist')
+    <li><a href="{{ route('dashboard.smp') }}">Beranda</a></li>
+    <li><a href="{{ route('goal.smp') }}">Tujuan</a></li>
+    <li><a href="{{ route('subject.smp') }}">Materi</a></li>
+    <li><a href="{{ route('gallery.smp') }}">Galeri</a></li>
+    <li><a href="{{ route('quiz.smp') }}">Quiz</a></li>
+@endsection
 @section('background', $background)
 
 @section('content')

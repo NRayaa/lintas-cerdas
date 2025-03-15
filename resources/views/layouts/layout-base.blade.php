@@ -35,7 +35,8 @@
                         </div>
                         <ul tabindex="0"
                             class="menu menu-sm dropdown-content bg-white text-gray-800 rounded-box z-10 mt-3 w-52 p-2 shadow">
-                            @if ($globalUser->type === 'sd')
+                            @yield('menulist')
+                            {{-- @if ($globalUser->type === 'sd')
                                 <li><a href="{{ route('dashboard.sd') }}">Beranda</a></li>
                                 <li><a href="{{ route('goal.sd') }}">Tujuan</a></li>
                                 <li><a href="{{ route('subject.sd') }}">Materi</a></li>
@@ -49,7 +50,7 @@
                                 <li><a href="{{ route('quiz.smp') }}">Quiz</a></li>
                             @else
                                 <li><a href="{{ route('login') }}">Login</a></li>
-                            @endif
+                            @endif --}}
                         </ul>
                     </div>
                 </div>
@@ -69,17 +70,22 @@
                         </div>
                         <ul tabindex="0"
                             class="menu menu-sm dropdown-content bg-white text-gray-800 rounded-box z-10 space-y-3 mt-5 w-24 lg:w-52 p-2 shadow">
-                            @if ($globalUser->type === 'sd')
+                            {{-- @if ($globalUser->type === 'sd')
                                 <li><a href="{{ route('profile.sd') }}">Profile</a></li>
                             @elseif ($globalUser->type === 'smp')
                                 <li><a href="{{ route('profile.smp') }}">Profile</a></li>
-                            @endif
+                            @endif --}}
                             <li>
-                                <form action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class=" cursor-pointer">Log Out</button>
-                                </form>
+                                @guest
+                                    <a href="{{ route('login') }}" class="cursor-pointer">Login</a>
+                                @else
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="cursor-pointer">Log Out</button>
+                                    </form>
+                                @endguest
                             </li>
+
                         </ul>
                     </div>
                 </div>

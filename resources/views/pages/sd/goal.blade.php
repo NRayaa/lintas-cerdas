@@ -2,7 +2,13 @@
 @php
     $background = 'background-image: url(' . asset('storage/assets/bg/bg-1.jpg') . ');';
 @endphp
-
+@section('menulist')
+    <li><a href="{{ route('dashboard.sd') }}">Beranda</a></li>
+    <li><a href="{{ route('goal.sd') }}">Tujuan</a></li>
+    <li><a href="{{ route('subject.sd') }}">Materi</a></li>
+    <li><a href="{{ route('gallery.sd') }}">Galeri</a></li>
+    <li><a href="{{ route('quiz.sd') }}">Quiz</a></li>
+@endsection
 @section('background', $background)
 @section('text-white', 'text-white')
 

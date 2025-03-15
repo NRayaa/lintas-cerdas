@@ -5,6 +5,13 @@
 
 @section('background', $background)
 @section('text-white', 'text-white')
+@section('menulist')
+    <li><a href="{{ route('dashboard.sd') }}">Beranda</a></li>
+    <li><a href="{{ route('goal.sd') }}">Tujuan</a></li>
+    <li><a href="{{ route('subject.sd') }}">Materi</a></li>
+    <li><a href="{{ route('gallery.sd') }}">Galeri</a></li>
+    <li><a href="{{ route('quiz.sd') }}">Quiz</a></li>
+@endsection
 
 @section('content')
     <div class="flex justify-between items-center w-full pt-10">
@@ -12,7 +19,7 @@
             'class' => 'lg:pl-10',
             'path' => 'storage/assets/svg/home/traffic-light-1.svg',
             'size' => 'w-40 h-auto',
-            'animation' => 'transition-transform duration-500 hover:animate-swing-scale'
+            'animation' => 'transition-transform duration-500 hover:animate-swing-scale',
         ])
         <div class="text-center ">
             @include('components.title', [
@@ -23,7 +30,7 @@
             'class' => 'lg:pr-10',
             'path' => 'storage/assets/svg/home/traffic-light-1.svg',
             'size' => 'w-40 h-auto',
-            'animation' => 'transition-transform duration-500 hover:animate-swing-scale'
+            'animation' => 'transition-transform duration-500 hover:animate-swing-scale',
         ])
     </div>
     <div class="lg:flex justify-center px-10 lg:px-20 pt-10 pb-10">
@@ -49,11 +56,11 @@
                     'image' => 'storage/assets/svg/home/game-1.svg',
                     'title' => 'Quiz',
                 ])
-                @include('components.menu-icon', [
+                {{-- @include('components.menu-icon', [
                     'href' => route('profile.sd'),
                     'image' => 'storage/assets/svg/home/profile-1.svg',
                     'title' => 'Profil',
-                ])
+                ]) --}}
             </div>
 
         </div>

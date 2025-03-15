@@ -18,6 +18,7 @@
             list-style-type: disc;
             padding-left: 1.5rem;
         }
+
         .prose ol {
             list-style-type: decimal;
             padding-left: 1.5rem;
@@ -43,16 +44,16 @@
                             </path>
                         </svg>
                     </button>
-                    <a href="https://flowbite.com" class="flex ms-2 md:me-24">
-                        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
+                    <a href="{{ route('goal.sma') }}" class="flex ms-2 md:me-24">
                         <span
-                            class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Flowbite</span>
+                            class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Lintas
+                            Cerdas</span>
                     </a>
                 </div>
                 <div class="flex items-center">
                     <div class="flex items-center ms-3">
                         <div>
-                            <a href="" type="button"
+                            <a  type="button"
                                 class="flex text-sm text-gray-500 hover:text-gray-900 hover:scale-110 transition duration-200"
                                 aria-expanded="false" data-dropdown-toggle="dropdown-user">
                                 <span class="sr-only">Open user menu</span>
@@ -65,20 +66,34 @@
                         </div>
                         <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm dark:bg-gray-700 dark:divide-gray-600"
                             id="dropdown-user">
-                            <div class="px-4 py-3" role="none">
+                            {{-- <div class="px-4 py-3" role="none">
                                 <p class="text-sm text-gray-900 dark:text-white" role="none">
                                     Neil Sims
                                 </p>
                                 <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
                                     neil.sims@flowbite.com
                                 </p>
-                            </div>
+                            </div> --}}
                             <ul class="py-1" role="none">
                                 <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        role="menuitem">Sign out</a>
+                                    @guest
+                                        <a href="{{ route('login') }}"
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                            role="menuitem">
+                                            Login
+                                        </a>
+                                    @else
+                                        <form action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <button type="submit"
+                                                class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                                role="menuitem">
+                                                Sign out
+                                            </button>
+                                        </form>
+                                    @endguest
                                 </li>
+
                             </ul>
                         </div>
                     </div>
@@ -94,20 +109,19 @@
             <ul class="space-y-2 font-medium">
                 <li>
                     <a href="{{ route('goal.sma') }}"
-                    class="flex items-center p-2 rounded-lg
+                        class="flex items-center p-2 rounded-lg
                         text-gray-900 dark:text-white
                         hover:bg-gray-100 dark:hover:bg-gray-700
                         {{ request()->routeIs('goal.sma') ? 'bg-gray-200 dark:bg-gray-800' : '' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        class="shrink-0 w-5 h-5 text-gray-500 transition duration-75
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="shrink-0 w-5 h-5 text-gray-500 transition duration-75
                             dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        width="16" height="16" fill="currentColor"
-                        viewBox="0 0 16 16">
-                        <path
-                            d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935" />
-                    </svg>
-                    <span class="ms-3">Tujuan</span>
-                </a>
+                            width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935" />
+                        </svg>
+                        <span class="ms-3">Tujuan</span>
+                    </a>
 
                 </li>
                 <li>

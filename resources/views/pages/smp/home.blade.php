@@ -2,7 +2,13 @@
 @php
     $background = 'background-image: url(' . asset('storage/assets/bg/bg-2.jpg') . ');';
 @endphp
-
+@section('menulist')
+    <li><a href="{{ route('dashboard.smp') }}">Beranda</a></li>
+    <li><a href="{{ route('goal.smp') }}">Tujuan</a></li>
+    <li><a href="{{ route('subject.smp') }}">Materi</a></li>
+    <li><a href="{{ route('gallery.smp') }}">Galeri</a></li>
+    <li><a href="{{ route('quiz.smp') }}">Quiz</a></li>
+@endsection
 @section('background', $background)
 
 @section('content')
@@ -11,7 +17,7 @@
             'class' => 'lg:pl-10',
             'path' => 'storage/assets/svg/home/traffic-light-1.svg',
             'size' => 'w-40 h-auto',
-            'animation' => 'transition-transform duration-500 hover:animate-swing-scale'
+            'animation' => 'transition-transform duration-500 hover:animate-swing-scale',
         ])
         <div class="text-center ">
             @include('components.title', [
@@ -22,7 +28,7 @@
             'class' => 'lg:pr-10',
             'path' => 'storage/assets/svg/home/traffic-light-1.svg',
             'size' => 'w-40 h-auto',
-            'animation' => 'transition-transform duration-500 hover:animate-swing-scale'
+            'animation' => 'transition-transform duration-500 hover:animate-swing-scale',
         ])
     </div>
     <div class="lg:flex justify-center px-10 lg:px-20 pt-10 pb-10">
@@ -48,11 +54,11 @@
                     'image' => 'storage/assets/svg/home/game-1.svg',
                     'title' => 'Quiz',
                 ])
-                @include('components.menu-icon', [
+                {{-- @include('components.menu-icon', [
                     'href' => route('profile.smp'),
                     'image' => 'storage/assets/svg/home/profile-1.svg',
                     'title' => 'Profil',
-                ])
+                ]) --}}
             </div>
 
         </div>
